@@ -1,6 +1,9 @@
 # Resolving Issues and Special Notes
 Use the below to solve the current known problems with the labs.  We will attempt to keep this current and remove workarounds as the resolutions are rolled into the labs.  Feel free to provide feedback by creating an **Issues** above.
 
+Jump directly to other helpful resources:
+[Skytap Tips and Tricks](icp-admin-bootcamp/labs/Skytap tips and tricks.md)
+
 ## ICP Console Login Problems Resolved
 
 It is not unusual to be unable to login to the ICP console after doing an ICP installation.  
