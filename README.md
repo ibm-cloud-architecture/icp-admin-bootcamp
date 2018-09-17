@@ -13,3 +13,8 @@ This course has the following objectives: <br>
 * Understand the additional services and content IBM has used to complete the solution
 
 The course is divided into labs <br> <img src="https://github.com/ibm-cloud-architecture/icp-admin-bootcamp/blob/master/labs/images/lab-icon.png" alt="labs" width="50"/> <br> and presentations <br> <img src="https://github.com/ibm-cloud-architecture/icp-admin-bootcamp/blob/master/labs/images/presentation-icon.png" alt="presentations" width="50"/>
+
+## Agendas
+The course has been designed for both four and five day delivery: <br>
+* [4 Day Agenda](https://github.com/ibm-cloud-architecture/icp-admin-bootcamp/blob/master/4-day-agenda.md)
+* [5 Day Agenda](https://github.com/ibm-cloud-architecture/icp-admin-bootcamp/blob/master/5-day-agenda.md)
