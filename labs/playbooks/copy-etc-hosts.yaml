@@ -1,0 +1,41 @@
+---
+#
+# Copy the /etc/hosts file from the local host to the target nodes.
+# This playbook is a convenience for scenarios where DNS is not available
+# because IP addresses are assigned by DHCP or particularly in lab environments
+# where the ICP cluster is relatively temporary.
+#
+# INPUTS:
+#   vars:
+#     target_nodes - a regex string or group name that defines the hosts or
+#                    host group.
+#
+#     You can define the vars on the ansible-playbook command line using --extra-vars.
+#     Or define vars in your hosts inventory or any of the other ways to define
+#     Ansible variables.
+#     The --inventory option can be used to provide a path to an inventory file
+#     on the ansible-playbook command line.
+#
+# NOTES:
+#
+# Root privilege is needed to run this configuration script.
+# The tasks where root is needed use the "become" option.
+#
+# Sample invocation (all on one line):
+#   ansible-playbook copy-etc-hosts.yaml --extra-vars "target_nodes=icp"
+#
+#   The above invocation assumes the ansible hosts file has a group named icp
+#   defined in it that includes all the nodes in the cluster.  If there is a
+#   dedicated boot node, the icp group does not need to include the boot node.
+#   If the boot node is also a master node, then the icp group needs to include
+#   that master node.
+#
+#
+- hosts: "{{ target_nodes }}"
+  tasks:
+  - name: "Copy /etc/hosts to the target."
+    copy:
+      src: /etc/hosts
+      dest: /etc/hosts
+      mode: 0644
+    become: True

@@ -1,0 +1,56 @@
+---
+#
+# Copy the PKI artifacts used to access the private docker registry running
+# in the ICP boot node.  The private docker registry is used during the ICP
+# installation as the source for images needed on each cluster node.  Pulling
+# images from a registry is more efficient than copying the image archive
+# to each node and loading images from the archive.
+#
+# INPUTS:
+#   vars:
+#     target_nodes - a regex string or group name that defines the hosts or
+#                    host group.
+#
+#     registry_host - a string that defines the host and port of the private
+#                     registry.  For example icpboot.icp.local:8500.
+#                     The registry_host is used in the directory path where
+#                     the PKI artifacts are expected to be located and are
+#                     to be copied.
+#     You can define the vars on the ansible-playbook command line using --extra-vars.
+#     Or define vars in your hosts inventory or any of the other ways to define
+#     Ansible variables.
+#     The --inventory option can be used to provide a path to an inventory file
+#     on the ansible-playbook command line.
+#
+# NOTES:
+#
+# Root privilege is needed to run this configuration script.
+# The tasks where root is needed use the "become" option.
+#
+# It is assumed the PKI artifacts to be copied are in
+#   /etc/docker/certs.d/{{ retgistry_host }},
+# where {{ registry_host }} looks like icpboot.icp.local:8500,
+# i.e., an FQDN and port.
+#
+# The copy command creates and copies an entire directory to the target node
+# when the syntax of the source leaves off the trailing / in the path.
+#
+# Sample invocation (all on one line):
+#   ansible-playbook copy-pki-artifacts.yaml
+#        --extra-vars "target_nodes=icp registry_host=icpboot.icp.local:8500"
+#
+#   The above invocation assumes the ansible hosts file has a group named icp
+#   defined in it that includes all the nodes in the cluster.  If there is a
+#   dedicated boot node, the icp group does not need to include the boot node.
+#   If the boot node is also a master node, then the icp group needs to include
+#   that master node.
+#
+#
+- hosts: "{{ target_nodes }}"
+  tasks:
+  - name: "Copy PKI artifacts in /etc/docker/certs.d/{{ registry_host }} to the target."
+    copy:
+      src: "/etc/docker/certs.d/{{ registry_host }}"
+      dest: /etc/docker/certs.d
+      mode: 0644
+    become: True
