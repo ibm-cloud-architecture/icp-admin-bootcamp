@@ -2,7 +2,7 @@
 
 ### Day 1 - Fundamentals and Installation
 
-<img src="labs/images/presentation-icon.png" alt="presentations" width="20"/> Welcome and Kickoff <br>
+<img src="labs/images/presentation-icon.png" alt="presentations" width="20"/> [Welcome and Kickoff](unit-presentations/00 - Welcome and introduction - 4 Day.pdf) <br>
 <img src="labs/images/presentation-icon.png" alt="presentations" width="20"/> Introduction to IBM Cloud Private <br>
 <img src="labs/images/presentation-icon.png" alt="presentations" width="20"/> Installation <br>
 <img src="labs/images/lab-icon.png" alt="labs" width="20"/> Installation <br>
