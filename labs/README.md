@@ -2,7 +2,7 @@
 Use the below to solve the current known problems with the labs.  We will attempt to keep this current and remove workarounds as the resolutions are rolled into the labs.  Feel free to provide feedback by creating an **Issues** above.
 
 Jump directly to other helpful resources:<br>
-[Skytap Tips and Tricks](https://github.com/ibm-cloud-architecture/icp-admin-bootcamp/labs/Skytap tips and tricks.md)
+[Skytap Tips and Tricks](hhttps://github.com/ibm-cloud-architecture/icp-admin-bootcamp/blob/master/labs/Skytap%20tips%20and%20tricks.md)
 
 ## ICP Console Login Problems Resolved
 
