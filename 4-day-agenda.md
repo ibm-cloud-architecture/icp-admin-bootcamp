@@ -10,7 +10,6 @@
 <img src="labs/images/lab-icon.png" alt="labs" width="20"/> [Build a Docker image and push to the registry](https://github.com/ibm-cloud-architecture/icp-admin-bootcamp/blob/master/labs/Lab%2002%20Private%20Docker%20Registry.md) <br>
 <img src="labs/images/presentation-icon.png" alt="presentations" width="20"/> Installation Review <br>
 <img src="labs/images/lab-icon.png" alt="labs" width="20"/> [Console Treasure Hunt](https://github.com/ibm-cloud-architecture/icp-admin-bootcamp/blob/master/labs/Lab%2003%20Console%20Treasure%20Hunt.md) <br>
-<img src="labs/images/lab-icon.png" alt="labs" width="20"/> Confirm installation by exploring the logs <br>
 
 ### Day 2 - Foundation Technologies, Infrastructure and Architecture
 
