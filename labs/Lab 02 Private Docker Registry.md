@@ -121,8 +121,6 @@ demoicp/hellofromliberty                    V1.0           ba9688d28a08        1
 Mycluster.icp:8500/demoicp/hellofromliberty V1.0           ba9688d28a08        18 minutes ago.        511MB
 ```
 
-![Add an Image Tag](images/privateregistry/Private-Registry-07.png)
-
 ## Push a Docker image to the ICP Private Docker Registry <a name="pushtheimage"></a>
 
 You created a Docker image, prepared the image for the ICP Private Docker Registry, and prepared ICP to receive the image.  The final two steps in the process are:
