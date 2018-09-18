@@ -46,12 +46,20 @@ COPY HelloFromLiberty.war /config/dropins/HelloFromLiberty.war
 
 5. When you are finished, your directory should look like this:
 
-![HelloFromLiberty Directory](images/privateregistry/Private-Registry-02.png)
-
+```
+drwxr-xr-x   2 root root 4096 Jun  3 17:32 .
+drwx------  26 root root 4096 Jun 15 14:52 ..
+-rw-r--r--   1 root root  380 Jun  3 17:32 Dockerfile
+-rw-r--r--   1 root root  380 Jun  3 17:55 HelloFromLiberty.war
+```
 
 ## Build a Docker image <a name="buildanimage"></a>
 
-1. Make sure that you are in the HelloFromLiberty directory, and then run the Docker `build` command as shown in the following image:
+1. Make sure that you are in the HelloFromLiberty directory, and then run the Docker `build` command:
+
+`docker build -t demoicp/hellofromliberty:v1.0`
+
+You will see results that resemble the following:
 
 ![Build the HelloFromLiberty Docker Image](images/privateregistry/Private-Registry-04.png)
 
@@ -59,7 +67,10 @@ The `-t` option in the above build command instructs Docker to add a `tag` to th
 
 2. After the build is complete, use the Docker `images` command to view the contents of the local Docker repository.
 
-![Local Repository](images/privateregistry/Private-Registry-05.png)
+```
+root@icp2103master:~/HelloFromLiberty# docker images | grep demoicp
+Demoicp/hellofromliberty        V1.0            ba9688d28a08        3 minutes ago.        511MB
+```
 
 ## Prepare to push the Docker image to the ICP Private Docker Registry <a name="prepthepush"></a>
 
@@ -102,6 +113,14 @@ The tag that you attached to the Docker image when you created it does not conta
 
 `docker tag demoicp/hellofromliberty:v1.0 mycluster.icp:8500/demoicp/hellofromliberty:v1.0`
 
+Once again review the results using the `image` command:
+
+```
+root@icp2103master:~/HelloFromLiberty# docker images | grep demoicp
+demoicp/hellofromliberty                    V1.0           ba9688d28a08        18 minutes ago.        511MB
+Mycluster.icp:8500/demoicp/hellofromliberty V1.0           ba9688d28a08        18 minutes ago.        511MB
+```
+
 ![Add an Image Tag](images/privateregistry/Private-Registry-07.png)
 
 ## Push a Docker image to the ICP Private Docker Registry <a name="pushtheimage"></a>
@@ -115,7 +134,12 @@ You created a Docker image, prepared the image for the ICP Private Docker Regist
 
 1. Authenticate to the ICP Private Docker Registry. Use the Docker `login` command shown below with your ICP console credentials (admin/admin):
 
-![Authenticate to the Registry](images/privateregistry/Private-Registry-06.png)
+```
+root@icp2103master:~/HelloFromLiberty# docker login https://mycluster.icp:8500
+Username (admin): admin
+Password:
+Login Succeeded
+```
 
 ### Push a Docker image
 
@@ -124,6 +148,8 @@ Now that everything is ready and you authenticated to the ICP Private Docker Reg
 1.  Run this command to push the Docker image to the registry.
 
 `docker push mycluster.icp:8500/demoicp/hellofromliberty:v1.0`
+
+The results should resemble the following:
 
 ![Push to the Registry](images/privateregistry/Private-Registry-12.png)
 
