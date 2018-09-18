@@ -22,13 +22,16 @@ You start with an application WAR file (HelloFromLiberty.war) that has already b
 
 2. Make a directory called "HelloFromLiberty" to hold all of the components that you use to build your Docker image and then change your current location to the new directory:
 
-> mkdir HelloFromLiberty
-> cd HelloFromLiberty
-
+```
+mkdir HelloFromLiberty
+cd HelloFromLiberty
+```
 For this lab, you will add 2 files to this new directory.
 
 3.  Use the following command to copy the HelloFromLiberty.war file into the HelloFromLiberty directory that you just created.  
-> curl -O https://raw.githubusercontent.com/jdiggity22/rtp-bootcamp/master/Labs_development/Assets/privateregistry/HelloFromLiberty.war
+```
+curl -O https://raw.githubusercontent.com/jdiggity22/rtp-bootcamp/master/Labs_development/Assets/privateregistry/HelloFromLiberty.war
+```
 
 This WAR file contains the simple Java Server Page (JSP) in the following image.
 
@@ -36,8 +39,10 @@ This WAR file contains the simple Java Server Page (JSP) in the following image.
 
 4. Use vi or another Linux text editor of your choice to create a file in the HelloFromLiberty directory with the name "Dockerfile" that contains the following two lines:
 
-> FROM websphere-liberty
-> COPY HelloFromLiberty.war /config/dropins/HelloFromLiberty.war
+```
+FROM websphere-liberty
+COPY HelloFromLiberty.war /config/dropins/HelloFromLiberty.war
+```
 
 5. When you are finished, your directory should look like this:
 
