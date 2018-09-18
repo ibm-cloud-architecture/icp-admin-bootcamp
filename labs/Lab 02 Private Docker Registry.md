@@ -36,7 +36,8 @@ This WAR file contains the simple Java Server Page (JSP) in the following image.
 
 4. Use vi or another Linux text editor of your choice to create a file in the HelloFromLiberty directory with the name "Dockerfile" that contains the following two lines:
 
-![Dockerfile](images/privateregistry/Private-Registry-03.png)
+> FROM websphere-liberty
+> COPY HelloFromLiberty.war /config/dropins/HelloFromLiberty.war
 
 5. When you are finished, your directory should look like this:
 
