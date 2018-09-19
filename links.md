@@ -19,6 +19,7 @@ This is an indexed copy of links from each of the sessions.<br/>
 [Stable Helm charts](https://github.com/kubernetes/charts/tree/master/stable)<br/>
 [Golang templates](https://golang.org/pkg/text/template)<br/>
 [Sprig template library](https://godoc.org/github.com/Masterminds/sprig)<br/>
+[Learn Helm from the Community](https://docs.helm.sh/)<br/>
 [Getting Started Authoring Helm Charts](https://deis.com/blog/2016/getting-started-authoring-helm-charts)<br/>
 [How to Create Your First Helm Chart](https://docs.bitnami.com/kubernetes/how-to/create-your-first-helm-chart)<br/>
 [Packaged Kubernetes Deployments – Writing a Helm Chart](https://www.influxdata.com/packaged-kubernetes-deployments-writing-helm-chart)<br/>
