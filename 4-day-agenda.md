@@ -27,7 +27,7 @@
 
 <img src="labs/images/presentation-icon.png" alt="presentations" width="20"/> Introduction to ICP Networking <br>
 <img src="labs/images/presentation-icon.png" alt="presentations" width="20"/> Introduction to Microservice Mesh (Istio) <br>
-<img src="labs/images/presentation-icon.png" alt="presentations" width="20"/> Resiliency <br>
+<img src="labs/images/presentation-icon.png" alt="presentations" width="20"/> Multi Cloud Manager <br>
 <img src="labs/images/presentation-icon.png" alt="presentations" width="20"/> Security <br>
 <img src="labs/images/lab-icon.png" alt="labs" width="20"/> [ICP LDAP Integration](https://github.com/ibm-cloud-architecture/icp-admin-bootcamp/blob/master/labs/Lab%2006%20OpenLDAP.md) <br>
 <img src="labs/images/presentation-icon.png" alt="presentations" width="20"/> Logging and Monitoring <br>
