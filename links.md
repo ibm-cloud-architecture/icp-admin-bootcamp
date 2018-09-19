@@ -8,6 +8,27 @@ This is an indexed copy of links from each of the sessions.<br/>
 ### Installing IBM Cloud Private
 [Offline or Air-Gap Install on Medium](https://medium.com/ibm-cloud/ibm-cloud-private-offline-installation-eb730ae13bfc)<br/>
 
+### Helm Basics
+[Installing Helm](https://docs.helm.sh/using_helm/#installing-helm)<br/>
+[Option: Download and Install Helm Release](https://github.com/kubernetes/helm/releases)
+[Option: Knowledge Center for 2103 Helm](https://www.ibm.com/support/knowledgecenter/en/SSBS6K_2.1.0.3/app_center/create_helm_cli.html)<br/>
+
+### Creating Helm Charts
+[Example Chart Templates](https://github.com/kubernetes/charts/)<br/>
+[Helm examples](https://github.com/kubernetes/helm/tree/master/docs/examples)<br/>
+[Stable Helm charts](https://github.com/kubernetes/charts/tree/master/stable)<br/>
+[Golang templates](https://golang.org/pkg/text/template)<br/>
+[Sprig template library](https://godoc.org/github.com/Masterminds/sprig)<br/>
+[Getting Started Authoring Helm Charts](https://deis.com/blog/2016/getting-started-authoring-helm-charts)<br/>
+[How to Create Your First Helm Chart](https://docs.bitnami.com/kubernetes/how-to/create-your-first-helm-chart)<br/>
+[Packaged Kubernetes Deployments – Writing a Helm Chart](https://www.influxdata.com/packaged-kubernetes-deployments-writing-helm-chart)<br/>
+
+### Kubernetes Basics
+[Kubernetes Tutorial](https://kubernetes.io/docs/tutorials/kubernetes-basics/)<br/>
+[Introduction to container orchestration](https://www.exoscale.ch/syslog/2016/07/26/container-orch/)<br/>
+[TNS Research: The Present State of Container Orchestration](https://thenewstack.io/tns-research-present-state-container-orchestration/)<br/>
+[Large-scale cluster management at Google with Borg](https://research.google.com/pubs/pub43438.html)<br/>
+
 ### IBM Cloud Private Architecture
 [SoundCloud for Prometheus](http://soundcloud.com/)<br/>
 [Prometheus open community](https://prometheus.io/community)<br/>
