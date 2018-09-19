@@ -15,7 +15,6 @@
 
 <img src="labs/images/lab-icon.png" alt="labs" width="20"/> [Install CLI and Tools](https://github.com/ibm-cloud-architecture/icp-admin-bootcamp/blob/master/labs/Lab%2004%20Install%20CLI%20Tools.md) <br>
 <img src="labs/images/presentation-icon.png" alt="presentations" width="20"/> Kubernetes Basics <br>
-<img src="labs/images/presentation-icon.png" alt="presentations" width="20"/> Kubernetes Resiliency <br>
 <img src="labs/images/presentation-icon.png" alt="presentations" width="20"/> Helm Basics <br>
 <img src="labs/images/presentation-icon.png" alt="presentations" width="20"/> Creating a Helm Chart <br>
 <img src="labs/images/lab-icon.png" alt="labs" width="20"/> [Deploy a Helm Chart - NodeJS](https://github.com/ibm-cloud-architecture/icp-admin-bootcamp/blob/master/labs/Lab%2005%20Deploy%20NodeJS%20Helm.md) <br>
