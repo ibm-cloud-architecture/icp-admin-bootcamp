@@ -14,6 +14,8 @@ This course has the following objectives: <br>
 
 The course is divided into labs <br> <img src="https://github.com/ibm-cloud-architecture/icp-admin-bootcamp/blob/master/labs/images/lab-icon.png" alt="labs" width="50"/> <br> and presentations <br> <img src="https://github.com/ibm-cloud-architecture/icp-admin-bootcamp/blob/master/labs/images/presentation-icon.png" alt="presentations" width="50"/>
 
+All of the links referenced in the presentations [can be found here](https://github.com/ibm-cloud-architecture/icp-admin-bootcamp/blob/master/links.md)<br/>
+
 ## Agendas
 The course has been designed for both four and five day delivery: <br>
 * [4 Day Agenda](https://github.com/ibm-cloud-architecture/icp-admin-bootcamp/blob/master/4-day-agenda.md)
