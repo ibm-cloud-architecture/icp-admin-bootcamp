@@ -56,3 +56,7 @@ There are no links embedded in this presentation.
 
 ### Storage
 There are no links embedded in this presentation.
+
+### Vulnerability Advisor
+Find most information available on the ICP Knowledge Center [here is the link for 2.1.0.3](https://www.ibm.com/support/knowledgecenter/en/SSBS6K_2.1.0.3/manage_cluster/vuln_advisor.html)<br/>
+
