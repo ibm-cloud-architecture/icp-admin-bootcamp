@@ -222,7 +222,7 @@ service_cluster_ip_range: 172.16.16.0/24
 kibana_install: true
 ```
 
-**Step 1.1: In `config.yaml` the `install_docker` line is commented out.  Find the install_docker line and uncomment it and set its value to true as shown below.**
+**Step 1.1: In `config.yaml` the `install_docker` line is commented out.  Find the install_docker line and uncomment it and set its value to false as shown below.**
 
 ```
 install_docker: false
