@@ -30,13 +30,13 @@ In some cases, it is possible that you may not be able to get a kube login conte
 3. Still in the same **terminal** session, run the following command to install the `kubectl` Kubernetes CLI:
 
   ```
-  docker run -e LICENSE=accept --net=host -v /usr/local/bin:/data ibmcom/icp-inception:2.1.0.3-ee cp /usr/local/bin/kubectl /data
+  docker run -e LICENSE=accept --net=host -v /usr/local/bin:/data icpboot.icp.local:8500/ibmcom/icp-inception:2.1.0.3-ee cp /usr/local/bin/kubectl /data
   ```
   
 4. Navigate to the `boot` node VM. In a terminal session, connect to the `boot` node as the **root** user. Run the following command to install the `kubectl` Kubernetes CLI:
 
   ```
-  docker run -e LICENSE=accept --net=host -v /usr/local/bin:/data ibmcom/icp-inception:2.1.0.3-ee cp /usr/local/bin/kubectl /data
+  docker run -e LICENSE=accept --net=host -v /usr/local/bin:/data icpboot.icp.local:8500/ibmcom/icp-inception:2.1.0.3-ee cp /usr/local/bin/kubectl /data
   ``` 
 
 ### Configure kubectl to connect to your ICP Cluster <a name="connect"></a>
