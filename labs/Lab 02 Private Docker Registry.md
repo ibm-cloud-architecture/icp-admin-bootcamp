@@ -57,7 +57,7 @@ drwx------  26 root root 4096 Jun 15 14:52 ..
 
 1. Make sure that you are in the HelloFromLiberty directory, and then run the Docker `build` command:
 
-`docker build -t demoicp/hellofromliberty:v1.0`
+`docker build -t demoicp/hellofromliberty:v1.0 .`
 
 You will see results that resemble the following:
 
