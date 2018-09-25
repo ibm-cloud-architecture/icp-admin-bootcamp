@@ -53,6 +53,7 @@ There are no links embedded in this presentation.
 ### Performance and Sizing
 [CASE ICP Sizing Best Practices](https://github.com/ibm-cloud-architecture/refarch-privatecloud/blob/master/Sizing.md)<br/>
 [NGINX as a proxy node start here](https://github.com/kubernetes/ingress-nginx)<br/>
+[Journey to 1000 Nodes on Medium](https://medium.com/ibm-cloud/journey-to-1000-nodes-for-ibm-cloud-private-5294138047d5)<br/>
 
 ### Storage
 There are no links embedded in this presentation.
