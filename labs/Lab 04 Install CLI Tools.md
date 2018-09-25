@@ -39,6 +39,15 @@ In some cases, it is possible that you may not be able to get a kube login conte
   docker run -e LICENSE=accept --net=host -v /usr/local/bin:/data icpboot.icp.local:8500/ibmcom/icp-inception:2.1.0.3-ee cp /usr/local/bin/kubectl /data
   ``` 
 
+The path `/usr/local/bin` may not be in the path of your system as in the case of this Skytap environment.  Add this to your path inside the .bash_profile and then source this profile profile:
+
+```PATH=$PATH:/usr/local/bin ```
+
+After saving the profile, source it from the command prompt:
+
+```. .bash_profile```
+
+
 ### Configure kubectl to connect to your ICP Cluster <a name="connect"></a>
 1. If you are not already logged in to the ICP Admin Console from a previous exercise, open a browser and navigate to `https://<icp_master_ip>:8443`. Log in by using `username: admin` and `password: admin`.
 
