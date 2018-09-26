@@ -43,7 +43,7 @@ There are no links embedded in this presentation.
 [NGINX as a proxy node start here](https://github.com/kubernetes/ingress-nginx)<br/>
 
 ### Backup and Recovery
-[The CASE repository for ICP Backup and Recovery](https://github.com/ibm-cloud-architecture/icp-backup)<br/>
+[The CASE repository for ICP Backup and Recovery](https://github.com/ibm-cloud-architecture/icp-backup) shortened to ibm.biz/iceback<br/>
 [Step-by-step instructions on how to back up and restore etcd](https://github.com/ibm-cloud-architecture/icp-backup/blob/master/docs/etcd.md)<br/>
 [Taking component snapshots](https://github.com/ibm-cloud-architecture/icp-backup/blob/master/docs/components.md)<br/>
 [etcd snapshot](https://github.com/ibm-cloud-architecture/icp-backup/blob/master/docs/etcd.md#etcd-restore-on-multi-master-icp-configuration)<br/>
