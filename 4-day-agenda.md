@@ -39,7 +39,6 @@
 <img src="labs/images/presentation-icon.png" alt="presentations" width="20"/> Cloud Automation Manager <br>
 <img src="labs/images/presentation-icon.png" alt="presentations" width="20"/> Microclimate <br>
 <img src="labs/images/lab-icon.png" alt="labs" width="20"/> [Installing and Using Microclimate](https://github.com/ibm-cloud-architecture/icp-admin-bootcamp/blob/master/labs/Lab%2009%20-%20Microclimate.md) <br>
-<img src="labs/images/presentation-icon.png" alt="presentations" width="20"/> Cloud native development – BlueCompute <br>
 <img src="labs/images/presentation-icon.png" alt="presentations" width="20"/> IBM Application Modernization <br>
 <img src="labs/images/presentation-icon.png" alt="presentations" width="20"/> IBM Transformation Advisor <br>
 <img src="labs/images/presentation-icon.png" alt="presentations" width="20"/> Course conclusion <br> 
