@@ -1,7 +1,7 @@
 # IBM Cloud Private Administration Bootcamp
 Welcome to the IBM Cloud Private Administration Bootcamp: A comprehensive bootcamp that teaches technical teams the infrastructure, architecture, administration and configuration of IBM's Hybrid Cloud Solution.
 
->You can reach this repository via the snipped link: **ibm.biz/icpboat**
+>You can reach this repository via the snipped link: **ibm.biz/iceboat**
 
 This course is intended for: <br>
 * Solution architects
