@@ -39,3 +39,6 @@ Tail multiple pods in K8s using [Stern](https://github.com/wercker/stern) <br/>
 
 ### Where does Istio get installed?
 Provide detail
+
+### Where / How can I change the default node port range in Kubernetes
+See the notation from [the Kubernetes documentation](https://kubernetes.io/docs/concepts/services-networking/service/) on networking search for the parameter --service-node-port-range <br/>
