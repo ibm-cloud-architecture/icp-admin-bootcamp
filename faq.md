@@ -42,3 +42,6 @@ Provide detail
 
 ### Where / How can I change the default node port range in Kubernetes
 See the notation from [the Kubernetes documentation](https://kubernetes.io/docs/concepts/services-networking/service/) on networking search for the parameter --service-node-port-range <br/>
+
+### Where do I find Chaos Monkey Ping-Pong App
+Eduardo has this linked in his external GitHub repo for [chaos monkey](https://github.com/patrocinio/kubernetes-pod-chaos-monkey) <br/>
