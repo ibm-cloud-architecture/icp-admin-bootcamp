@@ -38,7 +38,7 @@ Add additional slides and provide a brief description
 Tail multiple pods in K8s using [Stern](https://github.com/wercker/stern) <br/>
 
 ### Where does Istio get installed?
-Provide detail
+Istio by default gets installed onto the Proxy Nodes in your cluster (all components)
 
 ### Where / How can I change the default node port range in Kubernetes
 See the notation from [the Kubernetes documentation](https://kubernetes.io/docs/concepts/services-networking/service/) on networking search for the parameter --service-node-port-range <br/>
