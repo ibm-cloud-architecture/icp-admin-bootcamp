@@ -1,4 +1,4 @@
-# ICP Administration Bootcamp Standard 4 Day Agenda
+# ICP Administration Bootcamp Standard 5 Day Agenda
 
 ### Day 1 - Fundamentals and Installation
 
