@@ -85,10 +85,10 @@ In ICP 2.1.0.2 deployments you are able to use the `-s localhost:8888` option to
 
 Another "trick" to using `kubectl` without creating your own client config is to use the `--kubeconfig` option as shown in the sample `get pods` command:
 ```
-kubectl --kubeconfig=/var/lib/kubelet/kubelet-config get pods -n kube-system -o wide
+kubectl --kubeconfig=/var/lib/kubelet/kubectl-config get pods -n kube-system -o wide
 ```
 
-*TBD* The `/var/lib/kubelet/kubelet-config` file may exist only on the master node.
+*TBD* The `/var/lib/kubelet/kubectl-config` file may exist only on the master node.
 
 The above `get pods` command should dump out a list of all the `kube-system` pods and information about that particularly the `state`.
 
@@ -100,12 +100,12 @@ The pods that deal with authentication to the ICP console are referred to as the
 
 Use `get pods` and filter for just the `auth` pods
 ```
-kubectl --kubeconfig=/var/lib/kubelet/kubelet-config get pods -n kube-system -o wide | grep auth
+kubectl --kubeconfig=/var/lib/kubelet/kubectl-config get pods -n kube-system -o wide | grep auth
 ```
 
 Delete each active pod (run the command for each pod using the actual name for AUTH_POD_NAME)
 ```
-kubectl --kubeconfig=/var/lib/kubelet/kubelet-config -n kube-system delete pod AUTH_POD_NAME
+kubectl --kubeconfig=/var/lib/kubelet/kubectl-config -n kube-system delete pod AUTH_POD_NAME
 ```
 
 Once the pods have been deleted, you can run the `get pods` command filtering for the `auth` pods to see that they come back up to a `running` state.
