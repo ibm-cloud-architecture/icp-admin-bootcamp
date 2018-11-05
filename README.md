@@ -24,3 +24,6 @@ If you haven't already done so, go [here to sign up for the IBM Cloud Private pu
 The course has been designed for both four and five day delivery: <br>
 * [4 Day Agenda](https://github.com/ibm-cloud-architecture/icp-admin-bootcamp/blob/master/4-day-agenda.md)
 * [5 Day Agenda](https://github.com/ibm-cloud-architecture/icp-admin-bootcamp/blob/master/5-day-agenda.md)
+
+## Lab Environments
+Lab environments for the November Sao Paulo bootcamp can be found [in this boxnote](https://ibm.box.com/s/mli496xkzx3lxrjzij3rrea3w1kmsss2)
