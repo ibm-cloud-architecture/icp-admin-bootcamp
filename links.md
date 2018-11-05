@@ -7,7 +7,8 @@ This is an indexed copy of links from each of the sessions.<br/>
 
 ### Installing IBM Cloud Private
 [Offline or Air-Gap Install on Medium](https://medium.com/ibm-cloud/ibm-cloud-private-offline-installation-eb730ae13bfc)<br/>
-[Sizing a deployment](https://github.com/ibm-cloud-architecture/refarch-privatecloud/blob/master/Sizing.md)
+[Sizing a deployment](https://github.com/ibm-cloud-architecture/refarch-privatecloud/blob/master/Sizing.md)</br/>
+[Troubleshooting an Install Knowledge Center](https://www.ibm.com/support/knowledgecenter/SSBS6K_3.1.0/troubleshoot/troubleshoot.html)</br/>
 
 ### Helm Basics
 [Installing Helm](https://docs.helm.sh/using_helm/#installing-helm)<br/>
