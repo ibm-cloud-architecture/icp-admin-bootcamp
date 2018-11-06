@@ -18,7 +18,7 @@ The course is divided into labs <br> <img src="https://github.com/ibm-cloud-arch
 
 All of the **links** referenced in the presentations [can be found here](https://github.com/ibm-cloud-architecture/icp-admin-bootcamp/blob/master/links.md)<br/>
 We are starting to build a **FAQ** page based upon items put in the parking lot or based upon interesting side-bars during the bootcamp.  Find these [here](https://github.com/ibm-cloud-architecture/icp-admin-bootcamp/blob/master/faq.md) <br/>
-If you haven't already done so, go [here to sign up for the IBM Cloud Private public Slack channel](https://www.ibm.com/developerworks/community/wikis/home?lang=en#!/wiki/W1559b1be149d_43b0_881e_9783f38faaff/page/Connect)<br/>
+<img src="https://github.com/ibm-cloud-architecture/icp-admin-bootcamp/blob/master/labs/images/Slack_Icon.png" alt="presentations" width="50"/>If you haven't already done so, go [here to sign up for the IBM Cloud Private public Slack channel](https://www.ibm.com/developerworks/community/wikis/home?lang=en#!/wiki/W1559b1be149d_43b0_881e_9783f38faaff/page/Connect)<br/>
 
 ## Agendas
 The course has been designed for both four and five day delivery: <br>
