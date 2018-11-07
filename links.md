@@ -39,7 +39,7 @@ This is an indexed copy of links from each of the sessions.<br/>
 [Logstash](https://www.elastic.co/products/logstash)<br/>
 
 ### Multi Cloud Manager - Architecture Addendum
-There are no links embedded in this presentation.
+[MCM Cookbook](https://pages.github.ibm.com/CASE/refarch-mcm/)<br/>
 
 ### Network
 [NGINX as a proxy node start here](https://github.com/kubernetes/ingress-nginx)<br/>
