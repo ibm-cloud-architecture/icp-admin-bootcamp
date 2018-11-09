@@ -1,0 +1,70 @@
+******************************************************************
+TRANSFORMATION ADVISOR DATA COLLECTOR - FREQUENTLY ASKED QUESTIONS
+******************************************************************
+
+
+SOAP TIMEOUT EXCEPTION
+======================
+The wsadmin command does not have enough time to complete, the default is 180 seconds.
+You can resolve this by changing the system default SOAP Timeout, or by defining a timeout for just this execution
+
+Increase system default SOAP timeout
+-------------------------------------
+1. Find the following file: <PROFILE_ROOT>/properties/soap.client.props
+2. Increase the value for the property: com.ibm.SOAP.requestTimeout
+Note: If you set the value to 0 there will be no time limit
+3. Rerun the Data Collector
+
+Define customer SOAP Timeout for this execution
+-----------------------------------------------
+1. Copy the soap.client.props file from <PROFILE_ROOT>/properties into the Data Collector conf directory
+2. IMPORTANT: Update the name of the soap.client.props file to be: tasoap.client.props
+3. Edit tasoap.client.props and update the value of com.ibm.SOAP.requestTimeout as required
+4. Rerun the Data Collector
+
+NO JAVA INSTALLATION WAS DETECTED
+==================================
+This may occur if the Java architecture in the Data Collector is not suitable for your platform
+You can resolve this issue as follows:
+1. cd into transformationadvisor-2.1
+2. Replace the jre directory with the jre directory from the WAS/WebLogic/JBoss machine itself
+3. Run the Data Collector command again
+
+
+BAD MAJOR VERSION
+==================
+See "NO JAVA INSTALLATION WAS DETECTED" above
+
+
+CUSTOMIZED BINARY SCANNER COMMAND
+=================================
+Customised commands for the binary scanner can be given using customCmd.properties file in the conf directory.
+There is a different command for each report. 
+By default all the commands are commented out.
+Uncomment the command which you want to customise.
+The DC use the complete command generating that specific report.
+The DC will stop executing and throw an error if any of the options of custom command are incorrect.
+
+DOS AND DON'TS WHILE WRITING THE CUSTOM COMMAND OPTIONS.
+1- Don't give --format option. This is because TA server expects both html and json formats for each report. Generating only one report format may introduce errors while uploading and presenting the results. 
+
+2- Don't give --output option. This is because TA server expects file names in certain order. Moreover giving this option may change the location of reports storage which may cause problems while zipping up and uploading the results.
+
+3- If an option needs a path as its value then always surround the paths with double quotes.
+path="c:\\docs\\doc1"
+
+4- The backslash character must be escaped as a double backslash. For example:
+path="c:\\docs\\doc1"
+
+
+
+
+
+
+
+
+
+
+
+
+
