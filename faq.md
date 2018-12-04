@@ -2,7 +2,7 @@
 Use this space to document all of the parking lot items that have been recorded and answered through the workshop.  The intention here is to provide answers to frequently asked questions and potentially can be rolled into presentation and lab materials.
 
 ### What is the statement of support for IBM Middleware on OpenShift versus ICP running on OpenShift
-The full answer for this question has yet to be identified.
+The full answer for this question has yet to be identified, but with recent RedHat partnership tells us that we should expect this support to be in place or forthcoming.  Handle this request middleware by middleware.
 
 ### What is the link to Eduardo's blog for Elastic Stack / Elk writing integrated with Splunk?
 [How to deploy Splunk to IBM Cloud Private](https://medium.com/@epatro/how-to-deploy-splunk-to-ibm-cloud-private-9e03ab420805)<br/>
