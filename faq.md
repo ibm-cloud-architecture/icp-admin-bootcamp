@@ -45,3 +45,6 @@ See the notation from [the Kubernetes documentation](https://kubernetes.io/docs/
 
 ### Where do I find Chaos Monkey Ping-Pong App
 Eduardo has this linked in his external GitHub repo for [chaos monkey](https://github.com/patrocinio/kubernetes-pod-chaos-monkey) <br/>
+
+### What is the ICP Router or Router Component
+Hosts the management console and acts as the reverse proxy for all system components API.  In other terms this component directs client API requests to the appropriate backend service or process. <br/>
