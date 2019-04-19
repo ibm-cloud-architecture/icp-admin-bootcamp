@@ -142,47 +142,45 @@ The curator is a tool that is provided by ELK to manage the indices and it is ma
    You may also want to check the job logs to verify that the curator is removing the correct indices.
 
    ```
-   kubectl get jobs -n kube-system 
+   kubectl get jobs -n kube-system
    kubectl logs job/logging-elk-elasticsearch-curator-<xxxxxxxxxx>
    ```
 
    Sample output:
 
    ```
-Curator launching @ Mon Jan 14 23:30:12 UTC 2019
-2019-01-14 23:30:12,647 INFO      Preparing Action ID: 1, "delete_indices"
-2019-01-14 23:30:12,680 INFO      Trying Action ID: 1, "delete_indices": Delete user log indices that are older than 1 days. Cron schedule: 30 23 * * *
-2019-01-14 23:30:12,800 INFO      Deleting selected indices: [u'istio-system-2019.01.10', u'istio-system-2019.01.11', u'istio-system-2019.01.12', u'istio-system-2019.01.13', u'kube-system-2019.01.13']
-2019-01-14 23:30:12,801 INFO      ---deleting index istio-system-2019.01.10
-2019-01-14 23:30:12,801 INFO      ---deleting index istio-system-2019.01.11
-2019-01-14 23:30:12,801 INFO      ---deleting index istio-system-2019.01.12
-2019-01-14 23:30:12,801 INFO      ---deleting index istio-system-2019.01.13
-2019-01-14 23:30:12,801 INFO      ---deleting index kube-system-2019.01.13
-2019-01-14 23:30:19,316 INFO      Action ID: 1, "delete_indices" completed.
-2019-01-14 23:30:19,316 INFO      Preparing Action ID: 2, "delete_indices"
-2019-01-14 23:30:19,338 INFO      Trying Action ID: 2, "delete_indices": Delete elastic system monitoring log indices that are older than 1 days. Cron schedule: 30 23 * * *
-2019-01-14 23:30:19,472 INFO      Skipping action "delete_indices" due to empty list: <class 'curator.exceptions.NoIndices'>
-2019-01-14 23:30:19,472 INFO      Action ID: 2, "delete_indices" completed.
-2019-01-14 23:30:19,472 INFO      Preparing Action ID: 3, "delete_indices"
-2019-01-14 23:30:19,504 INFO      Trying Action ID: 3, "delete_indices": Delete elastic watcher history indices that are older than 1 days. Cron schedule: 30 23 * * *
-2019-01-14 23:30:19,690 INFO      Skipping action "delete_indices" due to empty list: <class 'curator.exceptions.NoIndices'>
-2019-01-14 23:30:19,690 INFO      Action ID: 3, "delete_indices" completed.
-2019-01-14 23:30:19,690 INFO      Preparing Action ID: 4, "delete_indices"
-2019-01-14 23:30:19,713 INFO      Trying Action ID: 4, "delete_indices": Delete vulnerability advisor indices that are older than 90 days. Cron schedule: 30 23 * * *
-2019-01-14 23:30:19,823 INFO      Deleting selected indices: [u'vulnerabilityscan-2019.01.13', u'compliance-2019.01.13', u'secconfig1-2019.01.13']
-2019-01-14 23:30:19,823 INFO      ---deleting index vulnerabilityscan-2019.01.13
-2019-01-14 23:30:19,823 INFO      ---deleting index compliance-2019.01.13
-2019-01-14 23:30:19,823 INFO      ---deleting index secconfig1-2019.01.13
-2019-01-14 23:30:20,323 INFO      Action ID: 4, "delete_indices" completed.
-2019-01-14 23:30:20,326 INFO      Preparing Action ID: 5, "delete_indices"
-2019-01-14 23:30:20,349 INFO      Trying Action ID: 5, "delete_indices": Delete audit log indices that are older than 1 days. Cron schedule: 30 23 * * *
-2019-01-14 23:30:20,463 INFO      Skipping action "delete_indices" due to empty list: <class 'curator.exceptions.NoIndices'>
-2019-01-14 23:30:20,463 INFO      Action ID: 5, "delete_indices" completed.
-2019-01-14 23:30:20,463 INFO      Job completed.
-Curator finished @ Mon Jan 14 23:30:20 UTC 2019
+    Curator launching @ Mon Jan 14 23:30:12 UTC 2019
+    2019-01-14 23:30:12,647 INFO      Preparing Action ID: 1, "delete_indices"
+    2019-01-14 23:30:12,680 INFO      Trying Action ID: 1, "delete_indices": Delete user log indices that are older than 1 days. Cron schedule: 30 23 * * *
+    2019-01-14 23:30:12,800 INFO      Deleting selected indices: [u'istio-system-2019.01.10', u'istio-system-2019.01.11', u'istio-system-2019.01.12', u'istio-system-2019.01.13', u'kube-system-2019.01.13']
+    2019-01-14 23:30:12,801 INFO      ---deleting index istio-system-2019.01.10
+    2019-01-14 23:30:12,801 INFO      ---deleting index istio-system-2019.01.11
+    2019-01-14 23:30:12,801 INFO      ---deleting index istio-system-2019.01.12
+    2019-01-14 23:30:12,801 INFO      ---deleting index istio-system-2019.01.13
+    2019-01-14 23:30:12,801 INFO      ---deleting index kube-system-2019.01.13
+    2019-01-14 23:30:19,316 INFO      Action ID: 1, "delete_indices" completed.
+    2019-01-14 23:30:19,316 INFO      Preparing Action ID: 2, "delete_indices"
+    2019-01-14 23:30:19,338 INFO      Trying Action ID: 2, "delete_indices": Delete elastic system monitoring log indices that are older than 1 days. Cron schedule: 30 23 * * *
+    2019-01-14 23:30:19,472 INFO      Skipping action "delete_indices" due to empty list: <class 'curator.exceptions.NoIndices'>
+    2019-01-14 23:30:19,472 INFO      Action ID: 2, "delete_indices" completed.
+    2019-01-14 23:30:19,472 INFO      Preparing Action ID: 3, "delete_indices"
+    2019-01-14 23:30:19,504 INFO      Trying Action ID: 3, "delete_indices": Delete elastic watcher history indices that are older than 1 days. Cron schedule: 30 23 * * *
+    2019-01-14 23:30:19,690 INFO      Skipping action "delete_indices" due to empty list: <class 'curator.exceptions.NoIndices'>
+    2019-01-14 23:30:19,690 INFO      Action ID: 3, "delete_indices" completed.
+    2019-01-14 23:30:19,690 INFO      Preparing Action ID: 4, "delete_indices"
+    2019-01-14 23:30:19,713 INFO      Trying Action ID: 4, "delete_indices": Delete vulnerability advisor indices that are older than 90 days. Cron schedule: 30 23 * * *
+    2019-01-14 23:30:19,823 INFO      Deleting selected indices: [u'vulnerabilityscan-2019.01.13', u'compliance-2019.01.13', u'secconfig1-2019.01.13']
+    2019-01-14 23:30:19,823 INFO      ---deleting index vulnerabilityscan-2019.01.13
+    2019-01-14 23:30:19,823 INFO      ---deleting index compliance-2019.01.13
+    2019-01-14 23:30:19,823 INFO      ---deleting index secconfig1-2019.01.13
+    2019-01-14 23:30:20,323 INFO      Action ID: 4, "delete_indices" completed.
+    2019-01-14 23:30:20,326 INFO      Preparing Action ID: 5, "delete_indices"
+    2019-01-14 23:30:20,349 INFO      Trying Action ID: 5, "delete_indices": Delete audit log indices that are older than 1 days. Cron schedule: 30 23 * * *
+    2019-01-14 23:30:20,463 INFO      Skipping action "delete_indices" due to empty list: <class 'curator.exceptions.NoIndices'>
+    2019-01-14 23:30:20,463 INFO      Action ID: 5, "delete_indices" completed.
+    2019-01-14 23:30:20,463 INFO      Job completed.
+    Curator finished @ Mon Jan 14 23:30:20 UTC 2019
    ```
-
-
 
 ### Conclusion
 
