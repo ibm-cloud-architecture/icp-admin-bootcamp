@@ -35,16 +35,20 @@ Lab - Console Treasure Hunt
 ## Overview
 In this lab exercise, you explore the IBM Cloud Private Administration Console by completing a Treasure Hunt.
 
+### Access your Master VM
+Using the **MASTER** VM in your SkyTap environment, log in as `root` with the password `passw0rd`
+
 ### Log in to your ICP Admin Console <a name="login"></a>
-If you are not already logged in to the ICP Admin Console from a previous exercise, open a browser and navigate to `https://10.0.0.2:8443`
+If you are not already logged in to the ICP Admin Console from a previous exercise, open a browser and navigate to `https://10.10.1.2:8443`
 
 ![ICP Login Screen](images/treasurehunt/login.jpg)
 
-Log in by using `username: admin` and `password: admin`
+Log in by using `username: admin` and `password: passw0rd`
 
 ### Getting Started <a name="gettingstarted"></a>
-The **Getting Started** page displays after you successfully log in.
-![ICP Getting Started Screen](images/treasurehunt/getstarted.jpg)
+The **Welcome** page displays after you successfully log in.
+
+![ICP Getting Started Screen](images/treasurehunt/welcome.jpg)
 
 Locate the following information:
 
@@ -70,11 +74,7 @@ Locate the following information:
 Click **Menu**, and then select **Platform > Nodes** to navigate to the Nodes page. This page displays information about the nodes that are part of the ICP Cluster.
 ![ICP Nodes Screen](images/treasurehunt/nodes.jpg)
 
-Note: Click the **command prompt** icon in the bottom right corner of the screen to see the command that a user can issue from the **Kubernetes CLI command prompt** to see the same information that displays in the Administration Console.
-
-![ICP CLI Commands](images/treasurehunt/cli.jpg)
-
-Click the **Name** of the node to *drill down* and see more information about the node.
+Click the **Name** of a node to *drill down* and see more information about the node.
 ![ICP Node Name](images/treasurehunt/nodename.jpg)
 
 Locate the following information:
@@ -111,6 +111,8 @@ By using the Catalog, you can browse and install packages in your IBM Cloud Priv
 The Catalog displays Helm charts, which contain application packages that can run as Kubernetes services. The packages are stored in repositories. The Catalog in IBM Cloud Private contains connections to recommended repositories by default, but you can connect to other repositories. After you connect to a repository, you can access its charts from the Catalog. Application developers can also develop applications and publish them in the Catalog so that other users can easily access and install the applications.
 
 ![ICP Catalog](images/treasurehunt/catalog.jpg)
+
+** If your catalog page is empty, click `Menu --> Manage > Helm Repositories`, click `Sync Repositories` and after a couple of minutes return to the `Catalog` page **
 
 Note: Click on the Helm Chart name to view the readme file.
 
@@ -152,9 +154,30 @@ Click **Menu** and then select **Platform > Monitoring** to open Grafana in a ne
 
 ![Grafana Home](images/treasurehunt/grafanahome.jpg)
 
-Click **Home** on the navigation bar and select **ICP 2.1 Performance IBM Provided 2.5** from the list to open the IBM provided Grafana page
+Click **Home** on the navigation bar and select **ICP Performance IBM Provided 2.5** from the list to open the IBM provided Grafana page
 
 ![Grafana ICP](images/treasurehunt/grafanaicp.jpg)
+
+**NOTE** If the page doesn't display correctly it may be due to prometheus not starting correctly in your lab environment. Execute the following steps to restart any failed prometheus pods:
+
+* open a terminal session and enter the following command. When prompted log in as *user:* `admin` with *password:* `passw0rd` and select the `default` namespace
+```bash
+cloudctl login -a https://10.10.1.2:8443
+```
+
+* enter the following command to find the failed pod
+```bash
+kubectl get pods -n kube-system | grep monitoring-prometheus
+```
+
+* take the pod name of the failed pod (in `crashloopbackoff` state) and execute the following command
+```bash
+kubectl delete pod -n kube-system <podname>
+```
+
+  e.g.: `kubectl delete pod -n kube-system monitoring-prometheus-fdb49f66b-jp6dw`
+
+* after a few moments, refresh the grafana page
 
 Locate the following information:
 
@@ -212,9 +235,9 @@ Locate the following information:
 
 2. How many **Pods** are part of the **icp-mongodb** StatefulSet
 
-3. Which **Containers** are part of the **image-manager-0** StatefulSet
+3. Which **Containers** are part of the **image-manager-0** Pod in the **image-manager** StatefulSet
 
-4. Find the **Logs** for the **image-manager** Container in the **image-manager-0** StatefulSet
+4. Find the **Logs** for the **image-manager** Container in the **image-manager** Pod
 
 ### DaemonSets <a name="daemonsets"></a>
 Click **Menu**, and then select **Workloads > DaemonSets** to navigate to the DaemonSets page. A DaemonSet ensures that all (or some) Nodes run a copy of a Pod. As nodes are added to the cluster, Pods are added to the cluster. As nodes are removed from the cluster, those Pods are garbage-collected. Deleting a DaemonSet cleans up the Pods that it created.
@@ -225,7 +248,7 @@ Locate the following information:
 
 1. How many Nodes is the **calico-node** DaemonSet deployed to?
 
-2. How many Nodes is the **rescheduler** DaemonSet deployed to?
+2. How many Nodes is the **nginx-ingress-controller** DaemonSet deployed to?
 
 3. How does Kubernetes know which Nodes to deploy a DaemonSet to?
 

@@ -9,53 +9,34 @@ Lab - Configuring IBM Cloud Private to use OpenLDAP
 ## Overview
 In this lab exercise, you deploy a standalone OpenLDAP Docker Container that has been pre-configured with some users and groups to IBM Cloud Private. Later, you configure IBM Cloud Private to use the OpenLDAP instance that you deployed.
 
-<u>When the OpenLDAP server is running, the LDAP schema looks like this:</u>
 
-> **<u>OU=Users</u>**
->
-> 		​todd
->
-> 		​james
->
-> 		​sarah
->
-> 		​bob
->
-> 		​laura
->
-> 		​josie
->
-> 		​carlos
->
-> 		​jackie
->
-> 		​tony
->
-> **<u>OU=Groups</u>**
->
-> 		​<u>developers</u>
->
-> 				​todd
->
-> 				​james
->
-> 				​sarah
->
-> 		​<u>operations</u>
->
-> 				​bob
->
-> 				​laura
->
-> 				​josie
->
-> 		​<u>support</u>
->
-> 				​carlos
->
-> 				​jackie
->
-> 				​tony
+When the OpenLDAP server is running, the LDAP schema looks like this:
+
+**OU=Users**
++ todd
++ james
++ sarah
++ bob
++ laura
++ josie
++ carlos
++ jackie
++ tony
+
+**OU=Groups**
++ developers
+    - todd
+    - james
+    - sarah
++ operations
+    - bob
+    - laura
+    - josie
++ support
+    - carlos
+    - jackie
+    - tony
+
 
 *Note: The default password for all users is: Passw0rd.*
 
@@ -67,13 +48,31 @@ In this lab exercise, you deploy a standalone OpenLDAP Docker Container that has
 ### Deploying and Testing OpenLDAP <a name="deploytest"></a>
 In this section, you create a Kubernetes **Deployment** and a Kubernetes **Service** for the OpenLDAP container. When the container is running, you access the container from a command line, and issue some LDAP queries.
 
-1. If you do not already have one open, open a **terminal** session that is connected to your `boot` node as the **root** user.
+1. If you do not already have one open, open a **terminal** session that is connected to your `master` node as the **root** user.
 
-2. If not completed in a previous exercise, configure the kubectl command line to connect to your ICP Cluster. Click the **User** icon on the navigation bar in the ICP Admin Console and then select **Configure Client** and copy the commands and paste them in to the terminal window.
+2. Configure the kubectl command line to connect to your ICP Cluster using the default namespace. Execute the command below to login to ICP.
+   ```
+   cloudctl login -a https://10.10.1.2:8443 -n default
+   ```
 
-3. Copy the following **Deployment** definition in to a file named `openldap-deployment.yaml`:  > The text is available here: https://ibm.box.com/s/z7nprdt9jdx6qesbo1izherachvn7o07
+3. Create a ClusterImagePolicy policy to allow ICP to pull the ldap image from Docker Hub. Copy the following command and paste it into your terminal to create the ClusterImagePolicy.
+    ```
+    kubectl create -f - <<EOF
+    apiVersion: securityenforcement.admission.cloud.ibm.com/v1beta1
+    kind: ClusterImagePolicy
+    metadata:
+      name: openldap-policy
+    spec:
+      repositories:
+      - name: docker.io/johnowebb/*
+        policy: null
+    EOF
+    ```
+
+4. Create the ldap **deployment**. This will pull the openldap image and deploy it to your ICP cluster. Copy the following command and paste it into your terminal to create the ldap deployment.
 
     ```
+    kubectl create -f - <<EOF
     apiVersion: apps/v1
     kind: Deployment
     metadata:
@@ -96,12 +95,13 @@ In this section, you create a Kubernetes **Deployment** and a Kubernetes **Servi
               ports:
                 - containerPort: 389
                   name: openldap
-
+    EOF
     ```
 
-4. Copy the following **Service** definition in to a file named **openldap-service.yml**: > The text is available here: https://ibm.box.com/s/mu4e0gh38v2omsp56n1cbh4llv3otz1c
+5. Create the **service** definition for the ldap deployment. This will provide a static way to access the ldap pod. Copy the following command and paste it into your terminal to create the ldap-service service.
 
     ```
+    kubectl create -f - <<EOF
     apiVersion: v1
     kind: Service
     metadata:
@@ -113,23 +113,10 @@ In this section, you create a Kubernetes **Deployment** and a Kubernetes **Servi
         - port: 389
       selector:
         app: ldap
+    EOF
     ```
 
-4. Run the following kubectl commands to create the **Deployment** and **Service**:
-
-  `kubectl create -f ./openldap-deployment.yml`
-
-  `kubectl create -f ./openldap-service.yml`
-
-  Example output
-  ```
-  # kubectl create -f ./openldap-deployment.yml
-  deployment.apps "ldap" created
-  # kubectl create -f ./openldap-service.yml
-  service "ldap-service" created
-  ```
-
-5. Verify that the pod is running with the following command:
+6. Verify that the pod is running with the following command:
 
   `kubectl get po`
 
@@ -141,7 +128,7 @@ In this section, you create a Kubernetes **Deployment** and a Kubernetes **Servi
   ldap-64745886dd-ljfdr   1/1       Running   0          2m
   ```
 
-6. Using the **pod name** from the previous command, run the following command to **describe the pod**:
+7. Using the **pod name** from the previous command, run the following command to **describe the pod**:
 
    `kubectl describe po <pod_name>`
 
@@ -198,7 +185,7 @@ In this section, you create a Kubernetes **Deployment** and a Kubernetes **Servi
     Normal  Started                5m    kubelet, pit-icp-worker-02  Started container
   ```
 
-7. Enter the following command to get the **Cluster IP** that has been assigned to the **Service**. You use this value later in the lab Exercise.
+8. Enter the following command to get the **Cluster IP** that has been assigned to the **Service**. You use this value later in the lab Exercise.
 
   `kubectl describe service ldap-service`
 
@@ -221,7 +208,7 @@ In this section, you create a Kubernetes **Deployment** and a Kubernetes **Servi
   ```
 
 
-8. Connect to the pod with an interactive shell by using the following command:
+9. Connect to the pod with an interactive shell by using the following command:
 
    `kubectl exec <pod_name> -it bash`
 
@@ -233,7 +220,7 @@ In this section, you create a Kubernetes **Deployment** and a Kubernetes **Servi
 
    ```
 
-9. To verify that the LDAP server is responding, and that the LDAP user and groups are available, run the following command to perform an **ldapsearch**:
+10. To verify that the LDAP server is responding, and that the LDAP user and groups are available, run the following command to perform an **ldapsearch**:
 
   `ldapsearch -x -h localhost -b dc=ibm,dc=com -D "cn=admin,dc=ibm,dc=com" -w Passw0rd`
 
@@ -418,7 +405,7 @@ In this section, you create a Kubernetes **Deployment** and a Kubernetes **Servi
   # numEntries: 17
   ```
 
-8. Type `exit` to close your interactive session.
+11. Type `exit` to close your interactive session.
 
 
 
@@ -426,9 +413,9 @@ In this section, you create a Kubernetes **Deployment** and a Kubernetes **Servi
 In this section, you configure IBM Cloud Private to use the OpenLDAP server that you just deployed for Role Based Access Control (RBAC).
 
 #### Create the LDAP Connection
-1. If you are not already logged in to the ICP Admin Console from a previous exercise, open a browser and navigate to `https://10.0.0.2:8443`. Log in by using `username: admin` and `password: admin`.
+1. If you are not already logged in to the ICP Admin Console from a previous exercise, open a browser and navigate to `https://10.10.1.2:8443`. Log in by using `username: admin` and `password: passw0rd`.
 
-2. Click **Menu**, and then select **Manage > Authentication**.
+2. Click **Menu**, and then select **Manage > Identity & Access**.
 
 3. When the **No LDAP connection found** message displays, click **Create LDAP Connection**.
 
@@ -464,7 +451,7 @@ In this section, you configure IBM Cloud Private to use the OpenLDAP server that
 
 5. Click **Test Connection** to make sure your settings are valid. If so, you see a message stating that your connection is valid.
 
-6. Click **Connect** to create the connection.
+6. Click **Create** to create the connection.
 
 #### Create Namespaces
 To prevent different groups from being able to view or modify each other's resources, you can create a level of isolation. To do this, create namespaces that you can associate with your teams.
@@ -478,15 +465,15 @@ To prevent different groups from being able to view or modify each other's resou
 #### Create Teams
 In the section, you work through the process of creating teams in ICP, and assign roles to them. These teams are based on the LDAP groups that are defined in your OpenLDAP container.
 
-1. In the ICP Admin Console click **Manage -> Teams**.
+1. In the ICP Admin Console click **Manage -> Identity & Access**.
 
 2. Click **Create team**.
 
-3. Enter the team name *developers*.
+3. Enter the team name *developers* and LDAP domain *openLDAP*.
 
 4. Select the developers group from the table below.
 
-   **Note:** The LDAP groups do not show up in the table below until a filter is applied. To find the developers' group, type "d" in the search field. The groups that start with "d" are populated in the table.
+   **Note:** The LDAP groups do not show up in the table below until a filter is applied. To find the developers' group, type "d" in the search field and press enter. The groups that start with "d" are populated in the table.
 
 5. Grant the developer team ***Editor*** access.
 
@@ -498,13 +485,13 @@ In the section, you work through the process of creating teams in ICP, and assig
 
 8. Navigate to the *Resources* tab.
 
-9. Click **Add resources**.
+9. Click **Manage resources**.
 
-10. From the list of namespaces, select *ldap-lab*.
+10. From the list of resources, select *ldap-lab* namespace.
 
   ![Resources](images/ldap/resources.jpg)
 
-11. Click **Add**.
+11. Click **Save**.
 
   Repeat the process to create two more teams with the values below.
 

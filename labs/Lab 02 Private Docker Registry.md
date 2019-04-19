@@ -18,7 +18,7 @@ In this lab exercise, you use a Java application that is packaged as a WAR file,
 ## Preparing to build a Docker image <a name="prepthebuild"></a>
 You start with an application WAR file (HelloFromLiberty.war) that has already been created for you. This application is very simple, and  contains a single JSP that, when run, prints the message "Hello World from Liberty on IBM Cloud Private" in your browser.
 
-1. Login to the `master` node as **root**. 
+1. Login to the `master` node as **root**.
 
 2. Make a directory called "HelloFromLiberty" to hold all of the components that you use to build your Docker image and then change your current location to the new directory:
 
@@ -65,7 +65,7 @@ You will see results that resemble the following:
 
 The `-t` option in the above build command instructs Docker to add a `tag` to the image that it builds.  The "." indicates that the Dockerfile to use to build the Docker image is located in the current directory.  After the Docker image is successfully created, you do not see the resulting image in the current directory. Docker build stores the newly created Docker image in the `local` Docker repository.  The `local` Docker repository is a repository that resides on the server on which you execute the Docker build command.
 
-2. After the build is complete, use the Docker `images` command to view the contents of the local Docker repository.
+2. After the build is complete, use the `docker images` command to view the contents of the local Docker repository.
 
 ```
 root@icp2103master:~/HelloFromLiberty# docker images | grep demoicp
@@ -81,9 +81,9 @@ Before you can successfully push a Docker image to the ICP Private Docker Regist
 
 ### Create a Namespace in ICP
 
-Recall from above that when you built the Docker image, the tag that is assigned to it contains the repository name `demoicp`.  You musto make sure that ICP has a matching namespace defined. If there is no namespace in ICP that corresponds to the repository in the ICP Private Docker Registry, then you get an authentication error when you attempt to push your Docker image.
+Recall from above that when you built the Docker image, the tag that is assigned to it contains the repository name `demoicp`.  You must make sure that ICP has a matching namespace defined. If there is no namespace in ICP that corresponds to the repository in the ICP Private Docker Registry, then you get an authentication error when you attempt to push your Docker image.
 
-1. Log in to the ICP console as admin/admin, and from the navigation menu, select **Manage -> Namespaces**.
+1. Log in to the ICP console (`https://10.10.1.2:8443`) as admin/passw0rd, and from the navigation menu, select **Manage -> Namespaces**.
 
 ![Console Namespaces](images/privateregistry/Private-Registry-08.png)
 
@@ -130,10 +130,10 @@ You created a Docker image, prepared the image for the ICP Private Docker Regist
 
 ### Authenticate to the ICP Private Docker Registry
 
-1. Authenticate to the ICP Private Docker Registry. Use the Docker `login` command shown below with your ICP console credentials (admin/admin):
+1. Authenticate to the ICP Private Docker Registry. Use the `docker login` command shown below with your ICP console credentials (admin/passw0rd):
 
 ```
-root@icp2103master:~/HelloFromLiberty# docker login https://mycluster.icp:8500
+root@icp2103master:~/HelloFromLiberty# docker login mycluster.icp:8500
 Username (admin): admin
 Password:
 Login Succeeded
@@ -151,13 +151,13 @@ The results should resemble the following:
 
 ![Push to the Registry](images/privateregistry/Private-Registry-12.png)
 
-2. Confirm that the new Docker image is successfully pushed to the ICP Private Docker Registry. Log in to the ICP console, and confirm that the new image appears in the list of available Docker images. From the menu, select **Manage -> Images**
+2. Confirm that the new Docker image is successfully pushed to the ICP Private Docker Registry. Log in to the ICP console, and confirm that the new image appears in the list of available Docker images. From the menu, select **Container Images**
 
-![Open Image List](images/privateregistry/Private-Registry-13.png)
+![Open Image List](images/privateregistry/container-images.jpg)
 
 3. The Docker image should appear in the list of available Docker images.
 
-![View Images List](images/privateregistry/Private-Registry-14.png)
+![View Images List](images/privateregistry/container-images-2.jpg)
 
 Congratulations! You successfully created a Docker image, and installed it in the ICP Private Docker Registry.
 

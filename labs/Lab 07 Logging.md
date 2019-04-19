@@ -12,20 +12,20 @@ In this lab exercise, you gain some experience using **kubectl** to view logs an
 ### Introduction to kubectl logging commands <a name="kubectl"></a>
 In this section, you use kubcetl commands to view logs from your ICP CLUSTER.
 
-1. If you do not already have one open, open a **terminal** session connected to your `boot` node as the **root** user.
+1. If you do not already have one open, open a **terminal** session connected to your `master` node as the **root** user.
 
 2. Configure the kubectl command line to connect to your ICP Cluster. Click the **User** icon on the navigation bar in the ICP Admin Console, and then select **Configure Client**. Copy the commands and paste them in to the terminal window.
 
 3. Enter the following command to view the logs for the nodejs sample (that you deployed earlier in the workshop) by using the **Deployment**:
 
   ```
-  kubectl logs deployment/nodejs-sample-cli-ibm-no --namespace nodejs-lab
+  kubectl logs deployment/nodejs-sample-nodejssample-nodejs --namespace nodejs-lab
   ```
 
   The output is similar to the output shown below:
 
   ```
-  # kubectl logs deployment/nodejs-sample-cli-ibm-no --namespace nodejs-lab
+  # kubectl logs deployment/nodejs-sample-nodejssample-nodejs --namespace nodejs-lab
 
   > nodejs-sample@1.0.0 start /app
   > node server/server.js
@@ -41,13 +41,13 @@ In this section, you use kubcetl commands to view logs from your ICP CLUSTER.
 4. Another way to access the same logs is by using the **app label**. Enter the following command to view the logs for the nodejs sample (that you deployed earlier in the workshop) by using the **app label**:
 
   ```
-  kubectl logs -lapp=nodejs-sample-cli-ibm-no-selector --namespace=nodejs-lab
+  kubectl logs -lapp=nodejsSample --namespace=nodejs-lab
   ```
 
 5. Another way to access the same logs is by using the **pod name**. Enter the following commands to get the pod name, and then get the logs for the pod:
 
   ```
-  export PODNAME=$(kubectl get pods -l app=nodejs-sample-cli-ibm-no-selector --namespace=nodejs-lab -o=jsonpath="{.items[0].metadata.name}")
+  export PODNAME=$(kubectl get pods -l app=nodejsSample --namespace=nodejs-lab -o=jsonpath="{.items[0].metadata.name}")
 
   kubectl logs $PODNAME --namespace=nodejs-lab
   ```
@@ -58,20 +58,9 @@ In this section, you use Kibana to review infrastructure and application logs an
 #### Access Kibana
 Kibana was installed in the **kube-system** namespace during IBM Cloud Private installation and integrated into the ICP Admin Console.
 
-1. If you are not already logged in to the ICP Admin Console from a previous exercise, open a browser and navigate to `https://10.0.0.2:8443`. Log in by using `username: admin` and `password: admin`.
+1. If you are not already logged in to the ICP Admin Console from a previous exercise, open a browser and navigate to `https://10.10.1.2:8443`. Log in by using `username: admin` and `password: passw0rd`.
 
 2. Click **Menu**, and then select **Platform > Logging** to access Kibana.
-
-#### Configure an Index Pattern
-When you first access the Kibana GUI, you are prompted to create an Index Pattern, which is used to access data in ElasticSearch.
-
-1. The **Index name or pattern** defaults to `logstash-*`. Select `@timestamp` from the **Time Filter field name** drop-down and click **Create**.
-
-  ![IndexPattern](images/logging101/indexpattern.jpg)
-
-2. Click **Discover** on the left-hand menu to run a default query against ElasticSearch for all log messages that have been generated in the last 15 minutes.
-
-  ![Discover](images/logging101/discover.jpg)
 
 #### View the logs for the nodejs sample
 In this section, you use Kibana to view the logs for the nodejs sample, and modify the fields that are displayed on the screen.
@@ -87,7 +76,7 @@ In this section, you use Kibana to view the logs for the nodejs sample, and modi
 #### Import a Dashboard and some Visualizations
 In this section, you import some basic visualizations and a dashboard that demonstrates some of the capabilities of Kibana.
 
-1. Copy the following **visualization** definitions in to a local file named ```kibana-visualations.txt```.  You can download it from here: https://ibm.box.com/s/fe63v0yg7e6u2rmmuhvocdg5ghp20old
+1. Copy the following **visualization** definitions in to a local file named ```kibana-visualations.txt```.  
 
   ```
   [
@@ -122,7 +111,7 @@ In this section, you import some basic visualizations and a dashboard that demon
   ]
   ```
 
-2. Copy the following **dashboard** definitions in to a local file named ```kibana-dashboard.txt```. You can download it from here: https://ibm.box.com/s/4jvffl27s3028y9yslwbw7rxov2y64is
+2. Copy the following **dashboard** definitions in to a local file named ```kibana-dashboard.txt```.
 
   ```
   [

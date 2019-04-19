@@ -14,13 +14,13 @@ In this lab exercise you will deploy a sample NodeJS Helm Chart.
 ### Create a new Namespace <a name="namespace"></a>
 In this section you will create a new namespace to deploy the Helm Charts in to.
 
-1. If you aren't already logged in to the ICP Admin Console from a previous exercise, open a browser and navigate to `https://10.0.0.2:8443` and log in using `username: admin` and `password: admin`
+1. If you aren't already logged in to the ICP Admin Console from a previous exercise, open a browser and navigate to `https://10.10.1.2:8443` and log in using `username: admin` and `password: passw0rd`
 
 2. Click **Menu** and then select **Manage > Namespaces** to navigate to the Namespaces page.
 
-3. Create a new Namespace named **helm-lab**. Click **Create Namespace**, enter helm-lab for the name, and click **Create**.
+3. Create a new Namespace named **helm-lab**. Click **Create Namespace**, enter helm-lab for the name, select **ibm-anyuid-hostpath-psp** from the `Pod Security Policy` dropdown  and click **Create**.
 
-  ![Namespace](images/helm101/namespace.jpg)
+  ![Namespace](images/helm101/namespace1.jpg)
 
 ### Deploy the NodeJS Helm Chart using the ICP Console <a name="consoleDeploy"></a>
 In this section, you deploy, test, and then remove the NodeJS Sample Helm Chart by using the ICP Admin console.
@@ -42,13 +42,12 @@ In this section, you deploy, test, and then remove the NodeJS Sample Helm Chart 
   | Release name     | nodejs-sample |
   | Target namespace      | helm-lab      |
   | I have read and agreed to the License Agreements | yes      |
-  | Image tag | 8     |
 
 6. When the *Installation started* dialog displays, click **Return to Catalog**.
 
   ![Installation Started](images/helm101/installationstarted.jpg)
 
-7. Click **Menu**, and then select **Workloads > Helm Resleases** to navigate to the Helm Releases page.
+7. Click **Menu**, and then select **Workloads > Helm Releases** to navigate to the Helm Releases page.
 
 8. Type **nodejs-sample** in the **Search** field to locate the Helm Chart that you just deployed.
 
@@ -76,7 +75,7 @@ In this section, you deploy, test, and then remove the NodeJS Sample Helm Chart 
 
 16. Close the Appmetrics Dashboard **browser tab**, and return to the **ICP Admin console**.
 
-17. Locate the **nodejs-sample** Helm Release on the **Workloads > Helm Resleases** page again.
+17. Locate the **nodejs-sample** Helm Release on the **Workloads > Helm Releases** page again.
 
 18. Click the **Action** link for the **nodejs-sample** Helm Release and select **Delete**.
 
@@ -87,7 +86,7 @@ In this section, you deploy, test, and then remove the NodeJS Sample Helm Chart 
 ### Deploy the NodeJS Helm Chart using the Helm CLI <a name="cmdDeploy"></a>
 In this section, you deploy, test, and then remove the NodeJS Sample Helm Chart by using the Helm CLI.
 
-1. If you don't already have one open, open a **terminal** session that is connected to your `boot` node as the **root** user.
+1. If you don't already have one open, open a **terminal** session that is connected to your `master` node as the **root** user.
 
 2. If not completed in a previous exercise, configure the kubectl command line to connect to your ICP Cluster. Click the **User** icon on the navigation bar in the ICP Admin Console and then select **Configure Client** and copy the commands and paste them in to the terminal window.
 
@@ -96,10 +95,10 @@ In this section, you deploy, test, and then remove the NodeJS Sample Helm Chart 
   ```
   cd /root
 
-  bx pr login -a https://<icp_master_ip>:8443 --skip-ssl-validation
+  cloudctl login -a https://<icp_master_ip>:8443 --skip-ssl-validation
   ```
 
-4. Enter `username: admin` and `password: admin` when prompted, and select the `mycluster Account`.
+4. Enter `username: admin` and `password: passw0rd` when prompted, and select the `mycluster Account`.
 
 5. Run the following command to initialize the Helm CLI:
 
@@ -116,15 +115,13 @@ In this section, you deploy, test, and then remove the NodeJS Sample Helm Chart 
 
   cd nodejs-sample
 
-  git init
-
-  git pull https://github.com/ibm-developer/icp-nodejs-sample
+  git clone https://github.com/IBM/charts.git
   ```
 
 7. Run the following commands to install the NodeJS Sample Helm Chart in to your ICP cluster:
 
   ```
-  cd chart/ibm-nodejs-sample
+  cd charts/stable/ibm-nodejs-sample
 
   helm install --name nodejs-sample-cli --namespace nodejs-lab . --tls
   ```
@@ -138,7 +135,7 @@ In this section, you deploy, test, and then remove the NodeJS Sample Helm Chart 
 9. Run the following command to get the port that was assigned to the Service:
 
   ```
-  kubectl get --namespace nodejs-lab services nodejs-sample-cli-ibm-no
+  kubectl get --namespace nodejs-lab services
   ```
 
   The output is similar to that shown below. Locate the **Service port** (in the example below; it is **32457**).
@@ -149,7 +146,7 @@ In this section, you deploy, test, and then remove the NodeJS Sample Helm Chart 
   nodejs-sample-cli-ibm-no   NodePort   10.0.0.207   <none>        3000:32457/TCP   1m
   ```
 
-10. Open a browser tab, and navigate to **http://icp-proxy-ip:service-port**. Validate that the NodeJS Sample application is up and running. For example, http://9.37.138.12:32457/.
+10. Open a browser tab, and navigate to **http://icp-proxy-ip:service-port**. Validate that the NodeJS Sample application is up and running. For example, http://10.10.1.4:32457/.
 
 11. Close the browser tab.
 
