@@ -8,7 +8,7 @@ Skytap tips and tricks
 
 [3. Copy and paste inside of Skytap](#copypaste)
 
-Use the Tab key to get to fields that you otherwise cannot see.   If the lab indicates there should be a button or fiels that you need to do something with and you can't see it, try hitting tab a few times to get to it.
+Use the Tab key to get to fields that you otherwise cannot see.   If the lab instructions indicate there should be a button or fields that you need to do something with, and you can't see items described by the instructions, try hitting tab a few times to get to them.
 
 
 ## Starting up Skytap<a name="startskytap"></a>
