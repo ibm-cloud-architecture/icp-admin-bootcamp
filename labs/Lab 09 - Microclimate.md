@@ -177,7 +177,7 @@ Microclimate requires two PVCs to function: one to store workspace data, and ano
 
 10. Copy the following PVC definition in to a file named `mc-jenkins-pvc.yaml`:
 
-    ```
+   ```
    kind: PersistentVolumeClaim
    apiVersion: v1
    metadata:
