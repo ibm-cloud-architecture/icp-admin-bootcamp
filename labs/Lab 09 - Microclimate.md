@@ -173,7 +173,7 @@ Microclimate requires two PVCs to function: one to store workspace data, and ano
      resources:
        requests:
          storage: 8Gi
-    ```
+    
 
 10. Copy the following PVC definition in to a file named `mc-jenkins-pvc.yaml`:
 
@@ -188,8 +188,9 @@ Microclimate requires two PVCs to function: one to store workspace data, and ano
      resources:
        requests:
          storage: 8Gi
-    ```
-
+         
+   ```
+    
 6. Create the Persistent Volumes, and Persistent Volume Claims by using the following commands:
 
    ```
