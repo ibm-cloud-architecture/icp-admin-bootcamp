@@ -1,17 +1,26 @@
 # Skytap tips and tricks
 ---
-
-### Table of contents<a name="toc"></a>
+<a name="toc"></a>
+### Table of contents
 
 [1. Skytap warnings](#skytapwarnings)
+
 [2. Desktop considerations](#desktopconsiderations)
+
 [3. Starting up Skytap](#startskytap)
+
 [4. Skytap notes](#skytapnotes)
+
 [4.1 Tab key](#tabkey)
+
 [4.2 Enter key](#enterkey)
+
 [4.3 Direct access mode](#directaccessmode)
+
 [4.4 Full screen mode](#fullscreenmode)
+
 [4.5 Copy and paste text into and out of Skytap](#copypaste)
+
 [4.6 When Skytap VMs get "wedged"](#wedgedvms)
 
 ## Skytap warnings<a name="skytapwarnings"></a>
