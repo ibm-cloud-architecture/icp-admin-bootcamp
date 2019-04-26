@@ -124,7 +124,7 @@ Microclimate requires two PVCs to function: one to store workspace data, and ano
     chmod 777 mc*
     ```
 
-7. In a **terminal** session that is connected to your `MASTER` node as the **root** user, copy the following PV definition in to a file named `mc-workspace-pv.yaml`, and change the **server IP address** (10.10.1.6) to the correct one for your environment.
+7. In a **terminal** session that is connected to your `MASTER` node as the **root** user, copy the following PV definition in to a file named `mc-workspace-pv.yaml`, and verify the **server IP address** (10.10.1.6) is the correct one for your environment.
 
     ```
     apiVersion: v1
@@ -142,7 +142,7 @@ Microclimate requires two PVCs to function: one to store workspace data, and ano
         server: 10.10.1.6
     ```
 
-8. Copy the following PV definition in to a file named `mc-jenkins-pv.yaml`, and change the **server IP address** (10.10.1.6) to the correct one for your environment:
+8. Copy the following PV definition in to a file named `mc-jenkins-pv.yaml`, and verify the **server IP address** (10.10.1.6) is the correct one for your environment:
 
     ```
     apiVersion: v1
@@ -251,6 +251,8 @@ In this section, you deploy the Microclimate Helm Chart by using the IBM Admin c
   | Target namespace  | microclimate |
   | I have read and agreed to the License Agreements | yes |
   | Microclimate Ingress Domain | 10.10.1.4.nip.io |
+
+**NOTE: if 'microclimate' isn't shown in the Target namespace box, click Cancel and click the Catalog button on the ICP Admin Console menu bar and search for ibm-microclimate again - this seems to be a bug in the UI where the list isn't populated correctly the first time**
 
   In the **Microclimate** section:
 
