@@ -163,11 +163,11 @@ Microclimate requires two PVCs to function: one to store workspace data, and ano
 9. Copy the following PVC definition in to a a file named `mc-workspace-pvc.yaml`:
 
     ```
-   kind: PersistentVolumeClaim
-   apiVersion: v1
-   metadata:
+    kind: PersistentVolumeClaim
+    apiVersion: v1
+    metadata:
      name: mc-workspace-pvc
-   spec:
+    spec:
      accessModes:
        - ReadWriteMany
      resources:
@@ -178,11 +178,11 @@ Microclimate requires two PVCs to function: one to store workspace data, and ano
 10. Copy the following PVC definition in to a file named `mc-jenkins-pvc.yaml`:
 
     ```
-   kind: PersistentVolumeClaim
-   apiVersion: v1
-   metadata:
+    kind: PersistentVolumeClaim
+    apiVersion: v1
+    metadata:
      name: mc-jenkins-pvc
-   spec:
+    spec:
      accessModes:
        - ReadWriteOnce
      resources:
@@ -190,7 +190,7 @@ Microclimate requires two PVCs to function: one to store workspace data, and ano
          storage: 8Gi
     ```
 
-6. Create the Persistent Volumes, and Persistent Volume Claims by using the following commands:
+11. Create the Persistent Volumes, and Persistent Volume Claims by using the following commands:
 
    ```
    kubectl create -f ./mc-workspace-pv.yaml
@@ -202,7 +202,7 @@ Microclimate requires two PVCs to function: one to store workspace data, and ano
    kubectl create -f ./mc-jenkins-pvc.yaml -n microclimate
    ```
 
-7. Verify that the PVCs are successfully **Bound** to the PVs by running the following command:
+12. Verify that the PVCs are successfully **Bound** to the PVs by running the following command:
 
 `kubectl get pvc -n microclimate`
 
