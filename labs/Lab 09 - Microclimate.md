@@ -307,11 +307,11 @@ In this section, you import an example NodeJS microservice project in to Microcl
 
 2. Enter `https://github.com/davemulley/nodeexample` in the Git field, and click **Next**.
 
-3. Verify that **Authentication required is not selected**, and click **Finish Import and Validate**. You will be prompted to validate the project type. Click **Finish Validation**
+3. Enter the project name as `nodeexample`. Verify that **Authentication required is not selected**, and click **Finish Import and Validate**. You will be prompted to validate the project type. Click **Finish Validation**
 
-4. Once the project is imported, the **Microclimate Dashboard** displays. Click **Files**, as shown below, and open the **node** folder.
+4. Once the project is imported, the **Microclimate Dashboard** displays. Click **Files**, as shown below.
 
-    ![Editor](images/microclimate/editor.jpg)
+    ![Editor](images/microclimate/editor2.jpg)
 
 5. Using the File Viewer, open `/nodeexample/public` and `/nodeexample/server`, and review the source code for the sample application.
 
@@ -319,7 +319,7 @@ In this section, you import an example NodeJS microservice project in to Microcl
 
     ![Health](images/microclimate/health.jpg)
 
-7. Open `/nodeexample/public/index.html`. Note that the page replies with a simple message (scroll down to line 12). You change this message later in the lab exercise.
+7. Open `/nodeexample/public/index.html`. Note that the page replies with a simple message (**scroll down** to line 12). You change this message later in the lab exercise.
 
     ![Index](images/microclimate/index-before.jpg)
 
