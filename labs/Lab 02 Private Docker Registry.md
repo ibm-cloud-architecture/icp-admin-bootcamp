@@ -35,7 +35,7 @@ curl -O https://raw.githubusercontent.com/jdiggity22/rtp-bootcamp/master/Labs_de
 
 This WAR file contains the simple Java Server Page (JSP) in the following image.
 
-![HelloFromLibery Application](images/privateregistry/Private-Registry-01.png)
+![HelloFromLiberty Application](images/privateregistry/Private-Registry-01.png)
 
 4. Use vi or another Linux text editor of your choice to create a file in the HelloFromLiberty directory with the name "Dockerfile" that contains the following two lines:
 

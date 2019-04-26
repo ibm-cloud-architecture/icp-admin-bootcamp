@@ -59,13 +59,9 @@ This is a simple 1 line change to the "logging-elk-elasticsearch-curator-config"
 
 ![new index](images/logging2/newindex.jpg)
 
-9. Repeat the process to create another index for the `elk-lab` namespace using `elk-lab-*` and `@timestamp`
-
-10. Navigate to **Discover** and change the index from `logstash-*` to `elk-lab-*`. You should now see some logs from the elk-lab pods and note that only the logs from the `elk-lab` namespace are being shown. Configure the view to show the `kubernetes.namespace`, `log` and `stream` fields.
+10. Navigate to **Discover** and change the index from `logstash-*` to `kube-system-*`. You should now see some logs from the kube-system pods and note that only the logs from the `kube-system` namespace are being shown. Configure the view to show the `kubernetes.namespace`, `log` and `stream` fields.
 
 ![new logs](images/logging2/elk-lab.jpg)
-
-11. Repeat the process to view the logs from the `kube-system` namespace
 
 That concludes the changes to to the logstash configuration. We now need to update the curator to manage the data retention for the new indices.
 
