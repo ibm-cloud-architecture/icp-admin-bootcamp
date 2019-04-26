@@ -124,7 +124,7 @@ Microclimate requires two PVCs to function: one to store workspace data, and ano
     chmod 777 mc*
     ```
 
-7. In a **terminal** session that is connected to your `MASTER` node as the **root** user, copy the following PV definition in to a file named `mc-workspace-pv.yaml`, and change the **server IP address** (10.10.1.6) to the correct one for your environment.
+7. In a **terminal** session that is connected to your `MASTER` node as the **root** user, copy the following PV definition in to a file named `mc-workspace-pv.yaml`, and verify the **server IP address** (10.10.1.6) is the correct one for your environment.
 
     ```
     apiVersion: v1
@@ -142,7 +142,7 @@ Microclimate requires two PVCs to function: one to store workspace data, and ano
         server: 10.10.1.6
     ```
 
-8. Copy the following PV definition in to a file named `mc-jenkins-pv.yaml`, and change the **server IP address** (10.10.1.6) to the correct one for your environment:
+8. Copy the following PV definition in to a file named `mc-jenkins-pv.yaml`, and verify the **server IP address** (10.10.1.6) is the correct one for your environment:
 
     ```
     apiVersion: v1
@@ -163,11 +163,11 @@ Microclimate requires two PVCs to function: one to store workspace data, and ano
 9. Copy the following PVC definition in to a a file named `mc-workspace-pvc.yaml`:
 
     ```
-   kind: PersistentVolumeClaim
-   apiVersion: v1
-   metadata:
+    kind: PersistentVolumeClaim
+    apiVersion: v1
+    metadata:
      name: mc-workspace-pvc
-   spec:
+    spec:
      accessModes:
        - ReadWriteMany
      resources:
@@ -177,21 +177,20 @@ Microclimate requires two PVCs to function: one to store workspace data, and ano
 
 10. Copy the following PVC definition in to a file named `mc-jenkins-pvc.yaml`:
 
-   ```
-   kind: PersistentVolumeClaim
-   apiVersion: v1
-   metadata:
+    ```
+    kind: PersistentVolumeClaim
+    apiVersion: v1
+    metadata:
      name: mc-jenkins-pvc
-   spec:
+    spec:
      accessModes:
        - ReadWriteOnce
      resources:
        requests:
          storage: 8Gi
-         
-   ```
-    
-6. Create the Persistent Volumes, and Persistent Volume Claims by using the following commands:
+    ```
+
+11. Create the Persistent Volumes, and Persistent Volume Claims by using the following commands:
 
    ```
    kubectl create -f ./mc-workspace-pv.yaml
@@ -203,7 +202,7 @@ Microclimate requires two PVCs to function: one to store workspace data, and ano
    kubectl create -f ./mc-jenkins-pvc.yaml -n microclimate
    ```
 
-7. Verify that the PVCs are successfully **Bound** to the PVs by running the following command:
+12. Verify that the PVCs are successfully **Bound** to the PVs by running the following command:
 
 `kubectl get pvc -n microclimate`
 
@@ -252,6 +251,8 @@ In this section, you deploy the Microclimate Helm Chart by using the IBM Admin c
   | Target namespace  | microclimate |
   | I have read and agreed to the License Agreements | yes |
   | Microclimate Ingress Domain | 10.10.1.4.nip.io |
+
+**NOTE: if 'microclimate' isn't shown in the Target namespace box, click Cancel and click the Catalog button on the ICP Admin Console menu bar and search for ibm-microclimate again - this seems to be a bug in the UI where the list isn't populated correctly the first time**
 
   In the **Microclimate** section:
 
@@ -306,11 +307,11 @@ In this section, you import an example NodeJS microservice project in to Microcl
 
 2. Enter `https://github.com/davemulley/nodeexample` in the Git field, and click **Next**.
 
-3. Verify that **Authentication required is not selected**, and click **Finish Import and Validate**. You will be prompted to validate the project type. Click **Finish Validation**
+3. Enter the project name as `nodeexample`. Verify that **Authentication required is not selected**, and click **Finish Import and Validate**. You will be prompted to validate the project type. Click **Finish Validation**
 
-4. Once the project is imported, the **Microclimate Dashboard** displays. Click **Files**, as shown below, and open the **node** folder.
+4. Once the project is imported, the **Microclimate Dashboard** displays. Click **Files**, as shown below.
 
-    ![Editor](images/microclimate/editor.jpg)
+    ![Editor](images/microclimate/editor2.jpg)
 
 5. Using the File Viewer, open `/nodeexample/public` and `/nodeexample/server`, and review the source code for the sample application.
 
@@ -318,7 +319,7 @@ In this section, you import an example NodeJS microservice project in to Microcl
 
     ![Health](images/microclimate/health.jpg)
 
-7. Open `/nodeexample/public/index.html`. Note that the page replies with a simple message (scroll down to line 12). You change this message later in the lab exercise.
+7. Open `/nodeexample/public/index.html`. Note that the page replies with a simple message (**scroll down** to line 12). You change this message later in the lab exercise.
 
     ![Index](images/microclimate/index-before.jpg)
 

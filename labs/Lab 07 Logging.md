@@ -19,13 +19,13 @@ In this section, you use kubcetl commands to view logs from your ICP CLUSTER.
 3. Enter the following command to view the logs for the nodejs sample (that you deployed earlier in the workshop) by using the **Deployment**:
 
   ```
-  kubectl logs deployment/nodejs-sample-nodejssample-nodejs --namespace nodejs-lab
+  kubectl logs deployment/nodejs-sample-cli-nodejssample-nodejs --namespace nodejs-lab
   ```
 
   The output is similar to the output shown below:
 
   ```
-  # kubectl logs deployment/nodejs-sample-nodejssample-nodejs --namespace nodejs-lab
+  # kubectl logs deployment/nodejs-sample-cli-nodejssample-nodejs --namespace nodejs-lab
 
   > nodejs-sample@1.0.0 start /app
   > node server/server.js
@@ -65,7 +65,7 @@ Kibana was installed in the **kube-system** namespace during IBM Cloud Private i
 #### View the logs for the nodejs sample
 In this section, you use Kibana to view the logs for the nodejs sample, and modify the fields that are displayed on the screen.
 
-1. In the search field, enter ```kubernetes.namespace: nodejs-lab``` to see the logs for the nodejs sample.
+1. In the search field, enter ```nodejs-lab``` to see the logs for the nodejs sample.
 
   ![NodeJS Logs](images/logging101/nodejs.jpg)
 
