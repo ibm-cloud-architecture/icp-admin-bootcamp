@@ -53,36 +53,36 @@ External mice may not work very well with Skytap.  The VM has a difficult time t
 5. The VMs will spin for awhile.  Be patient and wait for each VM to show a started state.
 
 [TOC](#toc)
-
-## Skytap notes<a name="skytapnotes"></a>
+<a name="skytapnotes"></a>
+## Skytap notes
 
 [TOC](#toc)
- 
-### Tab key<a name="tabkey"></a>
+<a name="tabkey"></a>
+### Tab key
 
 Use the Tab key to get to fields that you otherwise cannot see. If the lab instructions indicate there should be a button or fields that you need to do something with, and you can't see items described by the instructions, try hitting tab a few times to get to them.
 
 [TOC](#toc)
-
-### Enter key<a name="enterkey"></a>
+<a name="enterkey"></a>
+### Enter key
 
 You may occasionally find that you need to hit the enter key to force some screen event.
 
 [TOC](#toc)
-
-### Direct access mode<a name="directaccessmode"></a>
+<a name="directaccessmode"></a>
+### Direct access mode
 
 It is best to be working in "direct environment access" mode.  Click on the "Direct Environment Access" button near the top, middle of the window or near the lower right corner of the window when viewing all of the VMs.
 
 [TOC](#toc)
-
-### Full screen mode<a name="fullscreenmode"></a>
+<a name="fullscreenmode"></a>
+### Full screen mode
 
 Your user interface will behave better if you put the Skytap desktop in full screen mode.
 
 [TOC](#toc)
-
-### Copy and paste text into and out of Skytap<a name="copypaste"></a>
+<a name="copypaste"></a>
+### Copy and paste text into and out of Skytap
 
 [TOC](#toc)
 
@@ -98,7 +98,8 @@ When using a Mac, you may be able to copy-and-paste content directly from a Chro
 
 [TOC](#toc)
 
-### When Skytap VMs get "wedged"<a name="wedgedvms"></a>
+<a name="wedgedvms"></a>
+### When Skytap VMs get "wedged"
 
 - Depending on performance a VM can lock up.  Sometimes just waiting a minute is sufficient.
 
