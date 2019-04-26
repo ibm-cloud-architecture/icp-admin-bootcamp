@@ -23,7 +23,8 @@
 
 [4.6 When Skytap VMs get "wedged"](#wedgedvms)
 
-## Skytap warnings<a name="skytapwarnings"></a>
+<a name="skytapwarnings"></a>
+## Skytap warnings
 [TOC](#toc)
 - Skytap in North America performs reasonably well.  It has also performed reasonably well in London. 
 - Skytap is expensive.  Suspend your machines in the evenings.
@@ -31,8 +32,8 @@
 - Random periods of things seeming to be stuck or incredibly slow, even at the level of keystrokes makes working with Skytap problematic. Be patient when the images have first started up.  Usually these issues dissipate once the VMs have been running for awhile.
 
 [TOC](#toc)
-
-## Desktop considerations (Mac or Windows?)<a name="desktopconsiderations"></a>
+<a name="desktopconsiderations"></a>
+## Desktop considerations (Mac or Windows?)
 [TOC](#toc)
 
 A Mac works about as well as Windows with Skytap.
@@ -42,8 +43,8 @@ The Mac touchpad works much better with Skytap than a Lenovo machine touchpad.
 External mice may not work very well with Skytap.  The VM has a difficult time tracking an external mouse.
 
 [TOC](#toc)
-
-## Starting up Skytap<a name="startskytap"></a>
+<a name="startskytap"></a>
+## Starting up Skytap
 [TOC](#toc)
 
 1. Open a browser on your lab machine (Firefox or Chrome seem to behave better than IE)
