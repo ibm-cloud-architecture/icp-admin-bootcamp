@@ -2,7 +2,7 @@
 
 This section is designed to describe the process of configuring the ICP ElasticStack that is bundled with ICP to meet multi tenancy requirements.
 
-The OOTB configuration of ElasticStack that is deployed with ICP is makes some base assumptions that may be fine for some customers. However, it is an ElasticStack, so it so we can configure it.
+The OOTB configuration of ElasticStack that is deployed with ICP makes some base assumptions that may be fine for some customers. However, it is an ElasticStack, so we can configure it.
 
 
 
